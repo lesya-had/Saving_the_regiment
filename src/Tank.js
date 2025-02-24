@@ -6,6 +6,7 @@ class Tank {
         this.x = 20;
         this.y = 100;
         this.speedY = 0;
+        this.maxSpeed = 5;
     }
 
     update() {
