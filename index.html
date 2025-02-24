@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Игра "Спасая полк"</title>
+    <!-- Подключение шрифта Roboto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Подключение файла стилей -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Холст для отрисовки игры -->
+    <canvas id="canvas1"></canvas>
+
+    <!-- Персонажи -->
+    <img id="player" src="Assets/player.png" alt="Игрок">
+    <img id="angler1" src="Enemies/angler1.png" alt="Враг Angler1">
+    <img id="angler2" src="Enemies/angler2.png" alt="Враг Angler2">
+    <img id="lucky" src="Enemies/lucky.png" alt="Враг Lucky">
+    <img id="hivewhale" src="Enemies/hivewhale.png" alt="Враг HiveWhale">
+    <img id="drone" src="Enemies/drone.png" alt="Дрон">
+
+    <!-- Дополнительные элементы -->
+    <img id="projectile" src="Assets/projectile.png" alt="Снаряд">
+    <img id="gears" src="Assets/gears.png" alt="Шестерёнки">
+    <img id="smokeExplosion" src="Collision Animations/smokeExplosion.png" alt="Дымовой взрыв">
+    <img id="fireExplosion" src="Collision Animations/fireExplosion.png" alt="Огненный взрыв">
+
+    <!-- Слои окружения -->
+    <img id="layer1" src="Layers/layer1.png" alt="Фон: слой 1">
+    <img id="layer2" src="Layers/layer2.png" alt="Фон: слой 2">
+    <img id="layer3" src="Layers/layer3.png" alt="Фон: слой 3">
+    <img id="layer4" src="Layers/layer4.png" alt="Фон: слой 4">
+
+    <!-- Скрипты проекта -->
+    <!-- Классы -->
+    <script src="src/Projectile.js"></script>
+    <script src="src/Particle.js"></script>
+
+    <!-- Обработчик ввода -->
+    <script src="src/InputHandler.js"></script>
+
+    <!-- Враги -->
+    <script src="src/Enemies/Enemy.js"></script>
+    <script src="src/Enemies/Angler1.js"></script>
+    <script src="src/Enemies/Angler2.js"></script>
+    <script src="src/Enemies/Drone.js"></script>
+    <script src="src/Enemies/LuckyFish.js"></script>
+    <script src="src/Enemies/HiveWhale.js"></script>
+
+    <!-- Пользовательский интерфейс -->
+    <script src="src/UI/UI.js"></script>
+    <script src="src/UI/Layer.js"></script>
+    <script src="src/UI/Background.js"></script>
+
+    <!-- Анимации взрывов -->
+    <script src="src/Explosions/Explosion.js"></script>
+    <script src="src/Explosions/SmokeExplosion.js"></script>
+    <script src="src/Explosions/FireExplosion.js"></script>
+
+    <!-- Основные файлы -->
+    <script src="src/Player.js"></script>
+    <script src="src/Game.js"></script>
+
+    <!-- Главный файл -->
+    <script src="script.js"></script>
+</body>
+
+</html>
