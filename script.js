@@ -3,17 +3,20 @@ window.addEventListener('load', function () {
     const canvas = this.document.getElementById('canvas1');
     const ctx = canvas.getContext('2d');
     canvas.width = 1500;
-    canvas.height = 500;      
-})
+    canvas.height = 500;     
 
-const game = new Game(canvas.width, canvas.height);
+    const game = new Game(canvas.width, canvas.height);
+    let lastTime = 0;
 
     // animation loop
-    function animate() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height); // Очищаем игровое поле перед следующей анимацией
+    function animate(timeStamp) {
+        const deltaTime = timeStamp - lastTime;
+        lastTime = timeStamp;
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
         game.draw(ctx);
-        game.update();
-        requestAnimationFrame(animate);
+        game.update(deltaTime);
+        requestAnimationFrame(animate)
     }
 
-    animate();
+    animate(0);
+})
