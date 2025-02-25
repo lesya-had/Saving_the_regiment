@@ -7,7 +7,8 @@ class Samolet {
         this.y = 100;
         this.speedY = 0;
         this.maxSpeed = 5;
-        this.image = document.getElementById('a').style.backgroundImage="url(samolet/samolet.png)";
+        this.image = new Image(); // Создаем объект Image
+        this.image.src = 'samolet/samolet.png'; // Указываем путь к изображению
     }
 
     update() {
@@ -23,7 +24,7 @@ class Samolet {
     }
 
     draw(context) {
-        context.fillRect(this.x, this.y, this.width, this.height);
+        // Отображение изображения самолета
         context.drawImage(this.image, this.x, this.y, this.width, this.height);
-    }
+    }   
 }
