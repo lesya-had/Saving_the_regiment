@@ -23,8 +23,8 @@ class Samolet {
         else if (this.y < -this.height * 0.5) this.y = -this.height * 0.5;
         
         // Снаряды
-        this.projectiles.forEach(projectiles => { projectiles.update(); });
-        this.projectiles = this.projectiles.filter(pr => !pr.markedForDeletion);
+        this.projectiles.forEach(projectile => { projectile.update(); });
+        this.projectiles = this.projectiles.filter(projectile => !projectile.markedForDeletion);
     
 
     }
@@ -40,7 +40,7 @@ class Samolet {
     
     shootTop() {
         if (this.game.ammo > 0) {
-            this.projectiles.push(new Projectile(this.game, this.x + 80, this.y + 30));
+            this.projectiles.push(new Projectile(this.game, this.x + this.width, this.y + this.height / 2));
             this.game.ammo--;
         }
 
