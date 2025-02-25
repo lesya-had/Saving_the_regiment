@@ -7,6 +7,7 @@ class Samolet {
         this.y = 100;
         this.speedY = 0;
         this.maxSpeed = 5;
+        this.projectiles = [];
         this.image = document.getElementById('player');
     }
 
@@ -20,10 +21,28 @@ class Samolet {
         if (this.y > this.game.height - this.height * 0.5) this.y = this.game.
             height - this.height * 0.5;
         else if (this.y < -this.height * 0.5) this.y = -this.height * 0.5;
+        
+        // Снаряды
+        this.projectiles.forEach(pr => { pr.update(); });
+        this.projectiles = this.projectiles.filter(pr => !pr.markedForDeletion);
+    
+
     }
 
     draw(context) {
+        // Отображение снарядов
+        this.projectiles.forEach(projectile => {
+            projectile.draw(context);
+        });
         // Отображение изображения самолета
         context.drawImage(this.image, this.x, this.y, this.width, this.height);
-    }   
+    }
+    
+    shootTop() {
+        if (this.game.ammo > 0) {
+            this.projectiles.push(new Projectile(this.game, this.x + 80, this.y + 30));
+            this.game.ammo--;
+        }
+
+    }
 }
