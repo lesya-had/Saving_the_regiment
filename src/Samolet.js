@@ -23,7 +23,7 @@ class Samolet {
         else if (this.y < -this.height * 0.5) this.y = -this.height * 0.5;
         
         // Снаряды
-        this.projectiles.forEach(pr => { pr.update(); });
+        this.projectiles.forEach(projectiles => { projectiles.update(); });
         this.projectiles = this.projectiles.filter(pr => !pr.markedForDeletion);
     
 
