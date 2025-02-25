@@ -3,7 +3,7 @@ class Game {
         this.width = width;
         this.height = height;
         // Cоздание танка
-        this.player = new Tank(this);
+        this.player = new Samolet(this);
         // Возможность играть стрелочками
         this.input = new InputH(this);
         this.keys = [];

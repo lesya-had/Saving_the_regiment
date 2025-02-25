@@ -1,4 +1,4 @@
-class Tank {
+class Samolet {
     constructor(game) {
         this.game = game;
         this.width = 120;
@@ -7,6 +7,7 @@ class Tank {
         this.y = 100;
         this.speedY = 0;
         this.maxSpeed = 5;
+        this.image = document.getElementById('a').style.backgroundImage="url(samolet/samolet.png)";
     }
 
     update() {
@@ -23,5 +24,6 @@ class Tank {
 
     draw(context) {
         context.fillRect(this.x, this.y, this.width, this.height);
+        context.drawImage(this.image, this.x, this.y, this.width, this.height);
     }
 }
