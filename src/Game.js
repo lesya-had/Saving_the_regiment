@@ -7,6 +7,7 @@ class Game {
         // Возможность играть стрелочками
         this.input = new InputH(this);
         this.keys = [];
+        this.ammo = 20;
     }
 
     update() {
