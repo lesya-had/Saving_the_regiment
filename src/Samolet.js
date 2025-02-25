@@ -7,8 +7,7 @@ class Samolet {
         this.y = 100;
         this.speedY = 0;
         this.maxSpeed = 5;
-        this.image = new Image(); // Создаем объект Image
-        this.image.src = 'samolet/samolet.png'; // Указываем путь к изображению
+        this.image = document.getElementById('player');
     }
 
     update() {
