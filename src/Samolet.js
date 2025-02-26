@@ -31,6 +31,7 @@ class Samolet {
 
     draw(context) {
         // Отображение снарядов
+        context.fillStyle = 'black';
         this.projectiles.forEach(projectile => {
             projectile.draw(context);
         });
