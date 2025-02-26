@@ -12,6 +12,11 @@ class Game {
         this.ammoTimer = 0;
         this.ammoInterval = 1500;
 
+        this.enemies = [];
+        this.enemyTimer = 0;
+        this.enemyInterval = 1000;
+        this.gameOver = false;
+
     }
 
     update(deltaTime) {
@@ -23,10 +28,27 @@ class Game {
             this.ammoTimer += deltaTime;
         }
 
+        this.enemies.forEach(enemy => enemy.update());
+        this.enemies = this.enemies.filter(enemy => !enemy.markedForDeletion);
+        if (this.enemyTimer > this.enemyInterval && !this.gameOver) {
+            this.addEnemy();
+            this.enemyTimer = 0;
+        } else {
+            this.enemyTimer += deltaTime;
+        }
     }
 
     draw(context) {
         this.ui.draw(context);
         this.player.draw(context);
+
+        this.enemies.forEach(enemy => enemy.draw(context));
     }
+
+    addEnemy() {
+        const randomize = Math.random();
+        if (randomize < 0.5) this.enemies.push(new Angler1(this))
+        else this.enemies.push(new Angler2(this));
+    }
+
 }
