@@ -6,7 +6,7 @@ class Game {
         this.input = new InputH(this); // Возможность играть стрелочками
         this.ui = new UI(this); // Добавление снарядов
         this.keys = [];
-        this.projectiles = [];
+        // this.projectiles = [];
         this.ammo = 20;
         this.maxAmmo = 50;
         this.ammoTimer = 0;
