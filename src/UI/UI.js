@@ -15,6 +15,9 @@ class UI {
         context.font = this.fontSize + 'px ' + this.fontFamily;
         // очки
         context.fillText('Очки: ' + this.game.score, 20, 40);
+        // таймер
+        const formattedTime = (this.game.gameTime * 0.001).toFixed(1);
+        context.fillText('Timer: ' + formattedTime, 20, 100);
         // сообщения о победе или проигрыше
         if (this.game.gameOver) {
             context.textAlign = 'center';

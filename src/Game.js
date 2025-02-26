@@ -18,11 +18,17 @@ class Game {
         this.gameOver = false;
 
         this.score = 0;
-        this.winningScore = 30;
+        this.winningScore = 100;
+
+        this.gameTime = 0;
+        this.timeLimit = 40 * 1000;
 
     }
 
     update(deltaTime) {
+        if (!this.gameOver) this.gameTime += deltaTime;
+        if (this.gameTime > this.timeLimit) this.gameOver = true;
+        
         this.player.update();
         if (this.ammoTimer > this.ammoInterval) {
             if (this.ammo < this.maxAmmo) this.ammo++;
@@ -44,6 +50,8 @@ class Game {
                     if (enemy.lives <= 0) {        
                         enemy.markedForDeletion = true; // удаляем врага        
                         this.score += enemy.score; // увеличиваем количество очков главного игрока       
+                        
+                        if (!this.gameOver) this.score += enemy.score;
                         if (this.isWin()) this.gameOver = true;  // проверяем условие победы
                     }
                 }
