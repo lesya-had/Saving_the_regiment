@@ -15,26 +15,18 @@
 </head>
 
 <body>
+    
+    <div id="description">Используй клавиши "вверх"/"вниз" для движения игрока и пробел для стрельбы <br>
+        Для победы необходимо за 30 секунд набрать 100 очков!
+    </div>
+    
     <!-- Холст для отрисовки игры -->
     <canvas id="canvas1"></canvas>
 
     <!-- Персонажи -->
     <img id="player" src="samolet/samolet.png">
-    <img id="angler1" src="Enemies/angler1.png" alt="Враг Angler1">
-    <img id="angler2" src="Enemies/angler2.png" alt="Враг Angler2">
-    <img id="lucky" src="Enemies/lucky.png" alt="Враг Lucky">
-    <img id="hivewhale" src="Enemies/hivewhale.png" alt="Враг HiveWhale">
-    <img id="drone" src="Enemies/drone.png" alt="Дрон">
-
-    <!-- Дополнительные элементы -->
-    <img id="projectile" src="Assets/projectile.png" alt="Снаряд">
-    <img id="gears" src="Assets/gears.png" alt="Шестерёнки">
-    <img id="smokeExplosion" src="Collision Animations/smokeExplosion.png" alt="Дымовой взрыв">
-    <img id="fireExplosion" src="Collision Animations/fireExplosion.png" alt="Огненный взрыв">
-
-    <!-- Фон 
-    <img id="layer1" src="Fon/fon1.png" alt="Фон: слой 1"> 
--->
+    <img id="angler1" src="Enemies/angler1.png">
+    <img id="angler2" src="Enemies/angler2.png">
 
     <!-- Сама игра -->
     <!-- Классы -->
@@ -48,21 +40,9 @@
     <script src="src/Enemies/Enemy.js"></script>
     <script src="src/Enemies/Angler1.js"></script>
     <script src="src/Enemies/Angler2.js"></script>
-    <script src="src/Enemies/Drone.js"></script>
-    <script src="src/Enemies/LuckyFish.js"></script>
-    <script src="src/Enemies/HiveWhale.js"></script>
 
     <!-- Пользовательский интерфейс -->
     <script src="src/UI/UI.js"></script>
-<!--
-    <script src="src/UI/Layer.js"></script>
-    <script src="src/UI/Background.js"></script>
--->
-
-    <!-- Анимации взрывов -->
-    <script src="src/Explosions/Explosion.js"></script>
-    <script src="src/Explosions/SmokeExplosion.js"></script>
-    <script src="src/Explosions/FireExplosion.js"></script>
 
     <!-- Основные файлы -->
     <script src="src/Samolet.js"></script>

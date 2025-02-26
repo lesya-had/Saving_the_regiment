@@ -16,16 +16,14 @@
     font-family: 'Roboto', cursive; /* Подключаем шрифт Roboto */
 }
 
-#layer1,
+#description {
+    text-align: center;
+    margin-top: 20px;
+}
+
 #player,
 #angler1,
 #angler2,
-#lucky,
-#projectile,
-#gears,
-#hivewhale,
-#drone,
-#smokeExplosion,
-#fireExplosion {
+#projectile {
     display: none;
 }

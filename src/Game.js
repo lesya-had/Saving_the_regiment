@@ -21,7 +21,7 @@ class Game {
         this.winningScore = 100;
 
         this.gameTime = 0;
-        this.timeLimit = 40 * 1000;
+        this.timeLimit = 30 * 1000;
 
     }
 
