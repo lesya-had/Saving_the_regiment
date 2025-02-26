@@ -15,7 +15,7 @@ class Game {
     }
 
     update(deltaTime) {
-        this.player.update(deltaTime);
+        this.player.update();
         if (this.ammoTimer > this.ammoInterval) {
             if (this.ammo < this.maxAmmo) this.ammo++;
             this.ammoTimer = 0;
