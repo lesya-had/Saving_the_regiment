@@ -10,7 +10,7 @@ class Game {
         this.ammo = 20;
         this.maxAmmo = 50;
         this.ammoTimer = 0;
-        this.ammoInterval = 1500;
+        this.ammoInterval = 500;
 
         this.enemies = [];
         this.enemyTimer = 0;
@@ -29,6 +29,16 @@ class Game {
         }
 
         this.enemies.forEach(enemy => enemy.update());
+        if (this.checkCollision(this.player, enemy)) {
+            enemy.markedForDeletion = true;
+        }
+        this.player.projectiles.forEach(projectile => {
+            if (this.checkCollision(projectile, enemy)) {
+                projectile.markedForDeletion = true;
+            }
+        })
+            
+        
         this.enemies = this.enemies.filter(enemy => !enemy.markedForDeletion);
         if (this.enemyTimer > this.enemyInterval && !this.gameOver) {
             this.addEnemy();
@@ -49,6 +59,15 @@ class Game {
         const randomize = Math.random();
         if (randomize < 0.5) this.enemies.push(new Angler1(this))
         else this.enemies.push(new Angler2(this));
+    }
+
+
+
+    checkCollision(rect1, rect2) {
+        return (rect1.x < rect2.x + rect2.width &&
+            rect1.x + rect1.width > rect2.x &&
+            rect1.y < rect2.y + rect2.height &&
+            rect1.height + rect1.y > rect2.y)
     }
 
 }
