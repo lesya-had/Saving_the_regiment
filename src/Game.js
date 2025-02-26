@@ -10,7 +10,7 @@ class Game {
         this.ammo = 20;
         this.maxAmmo = 50;
         this.ammoTimer = 0;
-        this.ammoInterval = 500;
+        this.ammoInterval = 1500;
 
     }
 
