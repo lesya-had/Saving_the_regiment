@@ -22,7 +22,6 @@ class Game {
 
     }
 
-    
     update(deltaTime) {
         this.player.update();
         if (this.ammoTimer > this.ammoInterval) {
@@ -34,34 +33,23 @@ class Game {
 
         this.enemies.forEach(enemy => {
             enemy.update();
-            // Проверим, не столкнолся ли враг с главным игроком (player)
             if (this.checkCollision(this.player, enemy)) {
-                // если столкновение произошло, помечаем врага как удаленного
                 enemy.markedForDeletion = true;
-                }
-            // для всех активных пуль (projectiles) также проверим условие столкновения
-            // пули с врагом. 
+            }
             this.player.projectiles.forEach(projectile => {
-                if (this.checkCollision(projectile, enemy)) {
-                    // если столкновение произошло, помечаем снаряд как удаленный
-                    projectile.markedForDeletion = true;
-                }
-            })
-        });
-        
-        this.player.projectiles.forEach(projectile => {
-            this.enemies.forEach(enemy => {
                 if (this.checkCollision(projectile, enemy)) {
                     enemy.lives--; // уменьшаем жизни врага на единицу
                     projectile.markedForDeletion = true; // удаляем пулю
+                    // Проверяем, если у врага не осталось жизней
                     if (enemy.lives <= 0) {        
                         enemy.markedForDeletion = true; // удаляем врага        
                         this.score += enemy.score; // увеличиваем количество очков главного игрока       
                         if (this.isWin()) this.gameOver = true;  // проверяем условие победы
                     }
                 }
-            });
+            })
         });
+        
         
         this.enemies = this.enemies.filter(enemy => !enemy.markedForDeletion);
         if (this.enemyTimer > this.enemyInterval && !this.gameOver) {
@@ -94,7 +82,6 @@ class Game {
             rect1.y < rect2.y + rect2.height &&
             rect1.height + rect1.y > rect2.y)
     }
-
 
     isWin() {
         return this.score >= this.winningScore;
