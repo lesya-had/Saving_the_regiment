@@ -41,7 +41,7 @@ class Samolet {
     
     shootTop() {
         if (this.game.ammo > 0) {
-            this.projectiles.push(new Projectile(this.game, this.x + 80, this.y + 100));
+            this.projectiles.push(new Projectile(this.game, this.x + 80, this.y + 30));
             this.game.ammo--;
         }
 
