@@ -9,12 +9,12 @@ window.addEventListener('load', function () {
     let lastTime = 0;
 
     // animation loop
-    function animate(currentTime) {
-        const deltaTime = currentTime - lastTime;
+    function animate(timeStamp) {
+        const deltaTime = timeStamp - lastTime;
+        lastTime = currentTime;
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         game.draw(ctx);
         game.update(deltaTime);
-        lastTime = currentTime;
         requestAnimationFrame(animate)
     }
 
