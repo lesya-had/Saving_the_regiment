@@ -14,7 +14,7 @@ class UI {
         context.shadowColor = 'black';
         context.font = this.fontSize + 'px ' + this.fontFamily;
         // очки
-        context.fillText('Score: ' + this.game.score, 20, 40);
+        context.fillText('Очки: ' + this.game.score, 20, 40);
         // сообщения о победе или проигрыше
         if (this.game.gameOver) {
             context.textAlign = 'center';

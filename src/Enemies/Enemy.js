@@ -15,6 +15,7 @@ class Enemy {
 
     draw(context) {
         context.drawImage(this.image, this.x, this.y, this.width, this.height);
+        context.fillStyle = 'black'; 
         context.font = '20px Roboto';
         context.fillText(this.lives, this.x, this.y - 5);
     }

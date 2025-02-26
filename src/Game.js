@@ -22,6 +22,7 @@ class Game {
 
     }
 
+    
     update(deltaTime) {
         this.player.update();
         if (this.ammoTimer > this.ammoInterval) {
@@ -48,16 +49,19 @@ class Game {
             })
         });
         
-        if (this.checkCollision(projectile, enemy)) {
-            enemy.lives--; // уменьшаем жизни врага на единицу
-            projectile.markedForDeletion = true; // удаляем пулю
-            // Проверяем, если у врага не осталось жизней
-            if (enemy.lives <= 0) {        
-                enemy.markedForDeletion = true; // удаляем врага        
-                this.score += enemy.score; // увеличиваем количество очков главного игрока       
-                if (this.isWin()) this.gameOver = true;  // проверяем условие победы
-            }
-        }
+        this.player.projectiles.forEach(projectile => {
+            this.enemies.forEach(enemy => {
+                if (this.checkCollision(projectile, enemy)) {
+                    enemy.lives--; // уменьшаем жизни врага на единицу
+                    projectile.markedForDeletion = true; // удаляем пулю
+                    if (enemy.lives <= 0) {        
+                        enemy.markedForDeletion = true; // удаляем врага        
+                        this.score += enemy.score; // увеличиваем количество очков главного игрока       
+                        if (this.isWin()) this.gameOver = true;  // проверяем условие победы
+                    }
+                }
+            });
+        });
         
         this.enemies = this.enemies.filter(enemy => !enemy.markedForDeletion);
         if (this.enemyTimer > this.enemyInterval && !this.gameOver) {
@@ -68,12 +72,14 @@ class Game {
         }
     }
 
+
     draw(context) {
         this.ui.draw(context);
         this.player.draw(context);
 
         this.enemies.forEach(enemy => enemy.draw(context));
     }
+
 
     addEnemy() {
         const randomize = Math.random();
@@ -82,13 +88,13 @@ class Game {
     }
 
 
-
     checkCollision(rect1, rect2) {
         return (rect1.x < rect2.x + rect2.width &&
             rect1.x + rect1.width > rect2.x &&
             rect1.y < rect2.y + rect2.height &&
             rect1.height + rect1.y > rect2.y)
     }
+
 
     isWin() {
         return this.score >= this.winningScore;
