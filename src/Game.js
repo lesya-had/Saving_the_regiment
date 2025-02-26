@@ -26,9 +26,7 @@ class Game {
     }
 
     draw(context) {
-        this.player.draw(context);
         this.ui.draw(context);
+        this.player.draw(context);
     }
-
-
 }
