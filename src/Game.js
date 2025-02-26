@@ -14,7 +14,7 @@ class Game {
 
     }
 
-    update(deltaTime) {
+    update() {
         this.player.update();
 
         if (this.ammoTimer > this.ammoInterval) {
@@ -27,8 +27,8 @@ class Game {
     }
 
     draw(context) {
-        this.ui.draw(context);
         this.player.draw(context);
+        this.ui.draw(context);
     }
 
 

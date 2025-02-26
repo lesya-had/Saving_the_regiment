@@ -3,7 +3,6 @@ class UI {
         this.game = game;
         this.fontSize = 25;
         this.fontFamily = 'Roboto';
-        ;
         this.color = 'yellow';
     }
 
